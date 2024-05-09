@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prédiction e la qualité du vin</title>
+</head>
+<body>
+    <form action="{{ url_for('main') }}" method="POST">
+        <fieldset>
+            <legend>Valeurs d'entrée</legend>
+            Alcool:
+            <input name="alcohol" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Acide malique:
+            <input name="malic_acid" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Cendres:
+            <input name="ash" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Alcalinité des cendres:
+            <input name="alcalinity_of_ash" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Magnésium:
+            <input name="magnesium" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Phenols totaux:
+            <input name="total_phenols" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Flavanoïdes:
+            <input name="flavanoids" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Phénols non flavanoïdes:
+            <input name="nonflavanoid_phenols" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Proanthocyanis:
+            <input name="proanthocyanins" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Intensité de couleur:
+            <input name="color_intensity" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Teinte:
+            <input name="hue" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Vins dilués:
+            <input name="od280_od315_of_diluted_wines" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            Proline:
+            <input name="proline" type="number" step="0.01" min="0" value="0" required>
+            <br><br>
+            <input type="submit">
+        </fieldset>                
+    </form>
+    <br>
+    <div class="result" align="center">
+        {% if result %}
+            <br> Qualité prédite du vin:
+            <p style="font-size:50px">{{ result }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
