@@ -2,12 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prédiction e la qualité du vin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédiction de la qualité du vin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        fieldset {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        legend {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff8800;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff8800;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        input[type="submit"]:hover {
+            background-color: #cc6600;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .result p {
+            font-size: 30px;
+            font-weight: bold;
+            color: #ff8800;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
     <form action="{{ url_for('main') }}" method="POST">
         <fieldset>
-            <legend>Valeurs d'entrée</legend>
+            <legend>Valeurs d'entrée pour la prédiction</legend>
             Alcool:
             <input name="alcohol" type="number" step="0.01" min="0" value="0" required>
             <br><br>
@@ -51,10 +114,10 @@
         </fieldset>                
     </form>
     <br>
-    <div class="result" align="center">
+    <div class="result">
         {% if result %}
             <br> Qualité prédite du vin:
-            <p style="font-size:50px">{{ result }}</p>
+            <p>{{ result }}</p>
         {% endif %}
     </div>
 </body>
